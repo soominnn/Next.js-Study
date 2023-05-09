@@ -6,9 +6,10 @@ interface Props {
 }
 
 export default function Seo({ title }: Props) {
+  const headTitle = `${title} | Next Movies`;
   return (
     <Head>
-      <title>{title} | Next Movies</title>
+      <title>{headTitle}</title>
     </Head>
   );
 }
