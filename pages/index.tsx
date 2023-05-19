@@ -19,15 +19,7 @@ export default function Home({
 }: InferGetStaticPropsType<GetStaticProps>) {
   const router = useRouter();
   const onClick = (id: number, title: string) => {
-    router.push(
-      {
-        pathname: `/movies/${id}`,
-        query: {
-          title: title,
-        },
-      },
-      `/movies/${id}`
-    );
+    router.push(`/movies/${title}/${id}`);
   };
 
   return (
@@ -42,13 +34,7 @@ export default function Home({
           <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
           <h4>
             <Link
-              href={{
-                pathname: `/movies/${movie.id}`,
-                query: {
-                  title: movie.original_title,
-                },
-              }}
-              as={`/movies/${movie.id}`}
+              href={`/movies/${movie.original_title}/${movie.id}`}
               legacyBehavior
             >
               <a>{movie.original_title}</a>
